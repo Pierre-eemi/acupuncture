@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block H1 %}Les formations de Laurent Chang : Accupuncteur {% endblock %}
+
+{% block body %}
+
+{% for cours in lesCours %}
+    
+
+<div class="card bg-secondary mb-3">
+    <div class="card-body">
+        <h3 class="card-title">{{ cours.titre }}</h3>
+        <p class="card-text lead">{{ cours.description }}</p>
+        <hr class="my-4">
+        <p>
+            <a class="btn btn-success" href="{{ path('page', {idCours:cours.id, numPage:1}) }}" role="button">La formation {{ cours.titre }}</a>
+        </p>
+    </div>
+</div>
+
+{% endfor %}
+
+{% endblock %}
