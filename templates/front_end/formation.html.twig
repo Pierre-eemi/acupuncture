@@ -12,8 +12,13 @@
 
 {{ page.contenu | raw }}
 
+{% if page.numPage >= 2 %}
+<a href="{{ path('page',{idCours:page.cours.id,numPage:page.numPage - 1})}}" class="btn btn-primary m-4">Page précédente</a>
+{% endif %}
 {% if page.numPage < page.cours.pages | length %}
 <a href="{{ path('page',{idCours:page.cours.id,numPage:page.numPage + 1})}}" class="btn btn-primary m-4">Page suivante</a>
+{% elseif page.numPage == page.cours.pages | length %}
+<a href="{{ path('liste-cours')}}" class="btn btn-success m-4">Page d'accueil</a>
 {% endif %}
 
 
